@@ -1,11 +1,12 @@
 function startGame(mentalGameState) {
-    // console.log("********GAME HAS STARTED***********");
-
-    for (var i = 0; i < mentalGameState.total_rounds; i++) {
-        //  selectCardFromDeck(gameManager.targetDeck);
-        //  simulatePlayerAction();
-        //calculateWinnerOfTurn();
-    }
+    console.log("********GAME HAS STARTED***********");
+    console.log(mentalGameState);
+    // for (var i = 0; i < mentalGameState.total_rounds; i++) {
+    let card = selectCardFromDeck(mentalGameState);
+    return card;
+    //  simulatePlayerAction();
+    //calculateWinnerOfTurn();
+    // }
     // console.log('game state in in mental startGame', mentalGameState);
     //1. announce game start  
 
@@ -29,21 +30,22 @@ function startGame(mentalGameState) {
 //     }
 // }
 
-function selectCardFromDeck(mentalGameState, deck) {
+function selectCardFromDeck(mentalGameState) {
     //pick card
-    let cardsRemaining = deck.length;
+    let cardsRemaining = mentalGameState.target_deck.length;
     let indexForChoosingCard = Math.floor(Math.random() * cardsRemaining);
-    let cardToReturn = deck[indexForChoosingCard];
+    let cardToReturn = mentalGameState.target_deck[indexForChoosingCard];
 
     //remove from deck (will be removed from object on database)
-    let index = deck.indexOf(cardToReturn);
+    let index = mentalGameState.target_deck.indexOf(cardToReturn);
     if (index > -1) {
-        deck.splice(index, 1);
+        mentalGameState.target_deck.splice(index, 1);
     }
-    mentalGameState.targetDeck = deck;
     console.log('card to return', cardToReturn);
+    return cardToReturn;
+    // console.log(mentalGameState);
 
-    calculateWinnerOfTurn(cardToReturn);
+    //calculateWinnerOfTurn(cardToReturn);
 
 }
 

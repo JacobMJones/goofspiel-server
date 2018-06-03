@@ -6,6 +6,7 @@ $(document).ready(function() {
 });
 let lastGameStateChange = 0;
 let playerName = "";
+let canPlayCard = true;
 //let gameManager = {};
 
 
@@ -25,7 +26,7 @@ var poll = function() {
 
 function checkLogForNewEvents(mentalGameState) {
     if (mentalGameState.last_change > lastGameStateChange) {
-        console.log('i will do something new!');
+        //   console.log('i will do something new!');
         $.ajax({
 
             url: "http://localhost:8080/check_my_name",
@@ -39,39 +40,65 @@ function checkLogForNewEvents(mentalGameState) {
             timeout: 30000
         });
 
+    } else {
+        //console.log('nothing has changed');
     }
 }
 
 function reactToNewEvents(name, mentalGameState) {
-    console.log('in react name', name)
+
+
+    //eventually we show drawn card, first change how player cards are displayed
+
+
+
     playerName = name;
     let players = mentalGameState.players;
     let htmlToAppendToLobby = "";
     $('#board').empty();
 
-
     //for player
     var player = $('<p/>')
         .html(`${playerName}`)
+    var score = $('<p/>')
+        .html('score:')
+        .attr('id', `${playerName}_score`);
 
-
-    var readyToPlayButton = $('<button/>')
-        .text('Ready!')
-        .attr('id', `ready_button`);
-
-    $('#board').append(player);
-    $('#board').append(readyToPlayButton);
+    $('#board').append(player).append(score);
     let cardHolder = $('<div>').attr('class', 'card_holder');
     $('#board').append(cardHolder);
 
     for (var i = 1; i < 14; i++) {
         let card = $('<div>')
-            .text(`${i} `)
+            .text(`${i}`)
+            .attr('id', `card${playerName}${i}`)
             .attr('class', 'card')
+            .data('value', `${i}`)
+            .bind('click', function() {
+                if (canPlayCard) {
+                    canPlayCard = false;
+                    $(this)
+                        .attr('class', 'played_card');
+                    var playerObject = mentalGameState.players.filter(function(obj) {
+
+                        return obj.name == playerName
+                    });
+                    let realP = playerObject[0];
+                    realP.current_card = parseInt($(this).data('value'));
+                    realP.has_played = true;
+                    console.log('realP', realP);
+                    //change cards remaining
+                    $.post({
+                        url: "http://localhost:8080/push_player",
+                        data: realP,
+                        success: function() {
+                            console.log('new player info pushed');
+                        }
+                    });
+                }
+            });
         $('.card_holder').append(card);
     }
-    //  $('.button_div').append(readyToPlayButton);
-
 
     //for opponents
     for (var i = 0; i < players.length; i++) {
@@ -90,11 +117,21 @@ function reactToNewEvents(name, mentalGameState) {
     console.log(`#ready_${playerName}`);
 
     //deck
-    let gameDeck = $('<div>')
-        .attr('id', 'game_deck');
+    if (mentalGameState.game_state === 'waiting_for_players') {
+        let gameDeck = $('<div>')
+            .html(mentalGameState.current_card)
+            .attr('id', 'game_deck');
+
+        $('#board').append(gameDeck);
+    } else {
+        let gameDeck = $('<div>')
+            .attr('id', 'game_deck');
+        $('#board').append(gameDeck);
+    }
 
 
-    $('#board').append(gameDeck);
+
+
 }
 
 $(`#ready_${playerName}`).click(function() {

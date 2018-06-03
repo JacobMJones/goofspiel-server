@@ -24,7 +24,7 @@ $('#start_new_mental').click(function() {
         url: '/create_mental',
         success: function(lobbyState) {
             console.log('in return call', lobbyState);
-            setTimeout(function() { lobbyState.users_in_mental = [] }, 1000);
+            // setTimeout(function() { lobbyState.users_in_mental = [] }, 1000);
         }
     });
 });

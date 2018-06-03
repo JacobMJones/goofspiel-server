@@ -17,9 +17,21 @@ h1 {
     background-color: antiquewhite;
     padding: 2%;
     margin: 1%;
+    font-size: 15px;
+}
+
+.played_card {
+    float: left;
+    bottom: 30;
+    background-color: green;
+    padding: 2%;
+    margin: 1%;
+    font-size: 20px;
 }
 
 #game_deck {
+    text-align: center;
+    font-size: 25px;
     margin: 2%;
     background-color: brown;
     height: 100px;

@@ -133,15 +133,16 @@ app.post("/create_mental", (req, res) => {
             score: 0,
             has_played: false,
             current_card: 0,
-            cards_remaining: mentalGameState.target_deck
+            cards_remaining: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
         }
         mentalGameState.players.push(player);
         mentalGameState.player_play_state.push(false);
-        gMLogic.startGame(mentalGameState);
-        console.log('********', mentalGameState);
+
+
     }
     lobbyState.last_change = new Date().getTime();
-    res.send(lobbyState);
+    //res.send(lobbyState);
+    res.redirect('/draw_card');
 })
 
 function clearMentalQueue() {
@@ -192,6 +193,48 @@ app.get("/return_to_lobby", (req, res) => {
     }
     res.send(cookie);
 })
+
+///////Game Routes
+app.get('/draw_card', (req, res) => {
+    console.log('in card drawn')
+    let card = gMLogic.selectCardFromDeck(mentalGameState);
+
+    mentalGameState.current_card = card;
+    mentalGameState.game_state = 'waiting_for_players'
+
+    mentalGameState.last_change = new Date().getTime();
+    console.log('in express got card', card);
+    console.log(mentalGameState);
+    lobbyState.last_change = new Date().getTime();
+})
+
+app.post('/push_player', (req, res) => {
+    console.log('in push player', req.body);
+    for (var i = 0; i < mentalGameState.players.length; i++) {
+        if (mentalGameState.players[i].name == req.body.name) {
+            console.log('we got a match!');
+            mentalGameState.players[i] = req.body
+
+            var index = mentalGameState.players[i].cards_remaining.indexOf(req.body.current_card);
+            if (index > -1) {
+                mentalGameState.players[i].cards_remaining.splice(index, 1);
+            }
+            console.log('****', mentalGameState.players[i].cards_remaining);
+        }
+
+    }
+    lobbyState.last_change = new Date().getTime();
+
+    console.log(mentalGameState);
+
+    res.send('good!');
+})
+
+
+
+
+
+////////
 
 function addUserToLobbyStateArray(user, userId) {
     let userObject = { name: user, userId: userId };
