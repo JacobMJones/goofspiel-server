@@ -1,12 +1,12 @@
 function startGame(mentalGameState) {
-    console.log("********GAME HAS STARTED***********");
+    // console.log("********GAME HAS STARTED***********");
 
     for (var i = 0; i < mentalGameState.total_rounds; i++) {
         //  selectCardFromDeck(gameManager.targetDeck);
         //  simulatePlayerAction();
         //calculateWinnerOfTurn();
     }
-    console.log('game state in in mental startGame', mentalGameState);
+    // console.log('game state in in mental startGame', mentalGameState);
     //1. announce game start  
 
     //3 .display card to players

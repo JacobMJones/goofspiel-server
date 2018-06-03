@@ -11,7 +11,7 @@ const MongoClient = Mongo.MongoClient;
 const MONGODB_URI = "mongodb://127.0.0.1:27017/data";
 const PORT = process.env.PORT || 8080;
 const path = require("path");
-const sassMiddleware = require('node-sass-middleware');
+// const sassMiddleware = require('node-sass-middleware');
 const ObjectID = require('mongodb').ObjectID;
 app.set('view engine', 'html');
 let database;
@@ -31,12 +31,12 @@ app.use(cookieSession({
     keys: ["carsanddogs"],
 }));
 app.use(cookieParser('carsanddogs'));
-app.use(sassMiddleware({
-    src: path.join(__dirname, 'styles'),
-    dest: path.join(__dirname, 'public'),
-    debug: false,
-    outputStyle: 'compressed'
-}));
+// app.use(sassMiddleware({
+//     src: path.join(__dirname, 'styles'),
+//     dest: path.join(__dirname, 'public'),
+//     debug: false,
+//     outputStyle: 'compressed'
+// }));
 let firstDate = new Date().getTime();
 let lobbyState = {
     current_users: [],

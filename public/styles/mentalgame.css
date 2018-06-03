@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+}
+
+.ready_button {
+    float: left;
+}
+
+.opponent_card_holder {
+    background-color: rgb(136, 200, 243);
+    height: 100px;
+    width: 100px;
+}
+
+.card {
+    float: left;
+    background-color: antiquewhite;
+    padding: 2%;
+    margin: 1%;
+}
+
+#game_deck {
+    margin: 2%;
+    background-color: brown;
+    height: 100px;
+    width: 100px;
+}
+
+hr {
+    clear: both;
+}

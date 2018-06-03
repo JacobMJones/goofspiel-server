@@ -90,9 +90,6 @@ function reactToNewEvents(name, lobbyState) {
             timeout: 30000 // 30 seconds, where logout happens
         });
 
-
-
-
     }
 
     let usersInLobby = lobbyState.users_in_lobby;
