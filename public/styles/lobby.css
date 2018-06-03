@@ -1,0 +1,56 @@
+body {
+    margin: 3rem;
+    font-family: Avenir;
+}
+
+h1 {
+        color: black;
+        margin: auto;
+        text-align: center;
+}
+
+h3 {
+        text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin: 7em;
+
+}
+button {
+        background-color: tan;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 12px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        border-radius: 10px;
+        margin-top: 5px;
+}
+
+#lobby {
+
+        top: 10px;
+        left: 10px;
+        width: 200px;
+        height: 200px;
+        background-color: #ffd;
+        padding: 10px;
+        border-radius: 10px;
+}
+
+#mental_queue {
+
+        top: 10px;
+        left: 220px;
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        padding: 10px;
+        border-radius: 10px;
+}

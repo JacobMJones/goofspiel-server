@@ -1,0 +1,61 @@
+body {
+    margin: 3rem;
+    font-family: Avenir;
+    background-color: #EAFDF8;
+}
+
+h1 {
+        color: black;
+        margin: auto;
+        text-align: center;
+
+}
+
+h2 {
+    text-align: center;
+}
+
+
+.login-container {
+    display: flex;
+    justify-content: space-around;
+
+
+}
+button {
+        background-color: #E4F0D0;
+        /* Green */
+        border: none;
+        color: black;
+        padding: 12px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-family: Avenir;
+        font-size: 12px;
+        border-radius: 10px;
+        margin-top: 5px;
+
+}
+
+#lobby {
+
+        width: 250px;
+        height: 180px;
+        background-color: #A9DDD6;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: solid 1px #9BA0BC ;
+}
+
+#mental_queue {
+
+        width: 250px;
+        height: 180px;
+        background-color: #91ADC2;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: solid 1px #9BA0BC;
+}
