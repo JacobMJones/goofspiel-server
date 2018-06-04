@@ -131,7 +131,7 @@ app.post("/create_mental", (req, res) => {
     for (var i = 0; i < lobbyState.users_in_mental.length; i++) {
         player = {
             name: lobbyState.users_in_mental[i].name,
-            score: 0,
+            score: parseInt(0),
             has_played: false,
             current_card: 0,
             cards_remaining: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
@@ -237,7 +237,10 @@ app.post('/push_player', (req, res) => {
         for (var i = 0; i < mentalGameState.players.length; i++) {
             mentalGameState.players[i].has_played = false;
         }
-        gMLogic.calculateWinnerOfTurn(mentalGameState);
+        let winningCard = gMLogic.calculateWinnerOfTurn(mentalGameState);
+        console.log(winningCard);
+        givePointsToWinner(winningCard);
+
         let card = gMLogic.selectCardFromDeck(mentalGameState);
 
         mentalGameState.current_card = card;
@@ -247,7 +250,9 @@ app.post('/push_player', (req, res) => {
     }
 })
 
-
+function givePointsToWinner(card) {
+    console.log('in give points', card);
+}
 ////////
 
 function addUserToLobbyStateArray(user, userId) {

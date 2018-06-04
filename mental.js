@@ -53,24 +53,34 @@ function calculateWinnerOfTurn(mentalGameState) {
     let highestCard = 0;
     let winner;
     let topCardsAreTied = false;
-    let cardToReturn = mentalGameState.current_card;
-    for (var player in mentalGameState.players) {
-        playerCard = mentalGameState.players[player].current_card;
-        if (playerCard > highestCard) {
-            highestCard = playerCard;
-            winner = player;
-            topCardsAreTied = false;
-        } else if (playerCard === highestCard) {
-            topCardsAreTied = true;
-        }
-    }
+    let cardToReturn = parseInt(mentalGameState.current_card);
 
-    if (topCardsAreTied) {
-        //  console.log('top cards tied, no one wins')
-    } else {
-        //console.log('The winner is ', winner, ' with a', highestCard, 'they won', cardToReturn);
-        mentalGameState.players[winner].score += cardToReturn;
+    console.log('Card to return', cardToReturn);
+
+    for (var i = 0; i < mentalGameState.players.length; i++) {
+        let p = mentalGameState.players[i];
+
+        let name = p.name;
+        let c = parseInt(p.current_card);
+        console.log('player', name, 'card held', c);
+
+        if (c > highestCard) {
+            highestCard = c;
+            winner = name;
+        }
+
     }
+    console.log('Winner', winner, 'Highest card', highestCard, 'card to return', cardToReturn);
+    let players = mentalGameState.players;
+    var playerObject = mentalGameState.players.filter(function(obj) {
+
+        return obj.name == winner
+    });
+    let realP = playerObject[0];
+    realP.score = parseInt(realP.score) + parseInt(cardToReturn);
+
+    return 3;
+
 
 }
 
