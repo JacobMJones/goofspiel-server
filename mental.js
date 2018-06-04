@@ -49,13 +49,13 @@ function selectCardFromDeck(mentalGameState) {
 
 }
 
-function calculateWinnerOfTurn(mentalGameState, cardToReturn) {
+function calculateWinnerOfTurn(mentalGameState) {
     let highestCard = 0;
     let winner;
     let topCardsAreTied = false;
+    let cardToReturn = mentalGameState.current_card;
     for (var player in mentalGameState.players) {
-        playerCard = mentalGameState.players[player].current_card_played;
-        //  console.log('card', card, 'current_card_played', gameManager.players[card].current_card_played, 'highest card', highestCard);
+        playerCard = mentalGameState.players[player].current_card;
         if (playerCard > highestCard) {
             highestCard = playerCard;
             winner = player;
@@ -69,7 +69,7 @@ function calculateWinnerOfTurn(mentalGameState, cardToReturn) {
         //  console.log('top cards tied, no one wins')
     } else {
         //console.log('The winner is ', winner, ' with a', highestCard, 'they won', cardToReturn);
-        mentalGameState.players[winner].player_score += cardToReturn;
+        mentalGameState.players[winner].score += cardToReturn;
     }
 
 }

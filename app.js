@@ -55,6 +55,7 @@ let mentalGameState = {
     player_play_state: [],
     pointsForVictory: 100,
     total_rounds: 13,
+    current_card: 0
 }
 const users = {}
 let currentGames = {};
@@ -209,29 +210,42 @@ app.get('/draw_card', (req, res) => {
 })
 
 app.post('/push_player', (req, res) => {
-    console.log('in push player', req.body);
     for (var i = 0; i < mentalGameState.players.length; i++) {
         if (mentalGameState.players[i].name == req.body.name) {
-            console.log('we got a match!');
             mentalGameState.players[i] = req.body
 
             var index = mentalGameState.players[i].cards_remaining.indexOf(req.body.current_card);
             if (index > -1) {
                 mentalGameState.players[i].cards_remaining.splice(index, 1);
             }
-            console.log('****', mentalGameState.players[i].cards_remaining);
+            mentalGameState.players[i].has_played = true;
         }
 
     }
-    lobbyState.last_change = new Date().getTime();
+    //mentalGameState.last_change = new Date().getTime();
+    let stillWaiting = false;
+    for (var i = 0; i < mentalGameState.players.length; i++) {
+        if (mentalGameState.players[i].has_played === false) {
+            stillWaiting = true;
+        }
+    }
 
-    console.log(mentalGameState);
+    if (stillWaiting) {
+        console.log(mentalGameState);
+        res.send('good!');
+    } else {
+        for (var i = 0; i < mentalGameState.players.length; i++) {
+            mentalGameState.players[i].has_played = false;
+        }
+        gMLogic.calculateWinnerOfTurn(mentalGameState);
+        let card = gMLogic.selectCardFromDeck(mentalGameState);
 
-    res.send('good!');
+        mentalGameState.current_card = card;
+        mentalGameState.game_state = 'waiting_for_players'
+        console.log(mentalGameState);
+        mentalGameState.last_change = new Date().getTime();
+    }
 })
-
-
-
 
 
 ////////

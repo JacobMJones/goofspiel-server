@@ -12,6 +12,12 @@ h1 {
     width: 100px;
 }
 
+.opponent_card_holder_played {
+    background-color: lightseagreen;
+    height: 100px;
+    width: 100px;
+}
+
 .card {
     float: left;
     background-color: antiquewhite;
