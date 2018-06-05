@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <link rel="stylesheet" type="text/css" href="/styles/login.css">
-
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 <html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Page / Index</title>
+    <meta name="description" content="Login Page">
+</head>
+
 <body>
     <h1>Mental Jiu Jitsu</h1>
 <div class="login-container">
@@ -9,21 +16,21 @@
     <form action="/login" method="POST">
         <h2>Login</h2>
         <label for="name">Name:</label>
-        <input id="login-name" type="text" name="login_name" placeholder="">
+        <input id="login-name" type="text" name="login_name" placeholder="" style= "width: 12vw">
         <label for="login-password">Password:</label>
-        <input id="login-password" type="password" name="login_password" placeholder="">
-        <button class="btn" type="submit" value="Submit">Submit</button>
+        <input id="login-password" type="password" name="login_password" placeholder="" style= "width: 12vw">
+        <button class="btn hvr-grow" type="submit" value="Submit">Submit</button>
     </form>
   </div>
   <div id="mental_queue">
     <form action="/register" method="POST">
         <h2>Register</h2>
         <label for="name">Name:</label>
-        <input id="register-name" type="text" name="register_name" placeholder="">
+        <input id="register-name" type="text" name="register_name" placeholder="" style= "width: 12vw">
 
         <label for="register-password">Password:</label>
-        <input id="register-password" type="password" name="register_password" placeholder="">
-        <button class="btn" type="submit" value="Submit">Submit</button>
+        <input id="register-password" type="password" name="register_password" placeholder="" style= "width: 12vw">
+        <button class="btn hvr-grow" type="submit" value="Submit">Submit</button>
     </form>
   </div>
 </div>

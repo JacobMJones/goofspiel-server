@@ -1,13 +1,15 @@
 body {
     margin: 3rem;
-    font-family: Avenir;
-    background-color: #EAFDF8;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 2px;
+    background-color: #fec56d;
 }
 
 h1 {
-        color: black;
+        color: white;
         margin: auto;
         text-align: center;
+        font-size: 7vw
 
 }
 
@@ -22,40 +24,60 @@ h2 {
 
 
 }
-button {
-        background-color: #E4F0D0;
-        /* Green */
-        border: none;
-        color: black;
-        padding: 12px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-family: Avenir;
-        font-size: 12px;
-        border-radius: 10px;
-        margin-top: 5px;
+.btn {
+    background-color: #b9414c;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 2px;
+    font-size: 12px;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-left: 3px;
 
 }
 
+
 #lobby {
 
-        width: 250px;
-        height: 180px;
-        background-color: #A9DDD6;
+        width: 23vw;
+       /* height: 180px;*/
+        background-color: #F96968;
         padding: 10px;
         border-radius: 10px;
         margin-top: 10px;
-        border: solid 1px #9BA0BC ;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        /*border: solid 1px #9BA0BC ;*/
 }
 
 #mental_queue {
 
-        width: 250px;
-        height: 180px;
-        background-color: #91ADC2;
+        width: 23vw;
+       /* height: 180px;*/
+        background-color: #F96968;
         padding: 10px;
         border-radius: 10px;
         margin-top: 10px;
-        border: solid 1px #9BA0BC;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        /*border: solid 1px #9BA0BC;*/
+}
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

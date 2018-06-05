@@ -1,6 +1,7 @@
 <!doctype html>
 <link rel="stylesheet" type="text/css" href="/styles/lobby.css">
 <html lang="en">
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 
 <head>
     <meta charset="utf-8">
@@ -10,22 +11,24 @@
 </head>
 
 <body>
-    <h1>Welcome To Chill Fun Times!</h1>
-    <div class="container">
+    <h1>Mental <span style="color:black">Queue</span> Jitsu</h1>
+    <div class="login-container">
         <div>
         <h3 id="lobby_title">Lobby</h3>
         <div id="lobby">...</div>
-        <button name="join_mental" id="join_mental" value="Join Mental" type="submit">Join</button>
+        <button class="button-add" name="join_mental" id="join_mental" value="Join Mental"><span>Join</span></button>
         </div>
 <br/>
         <div>
         <h3 id="mental_title">Mental</h3>
         <div id="mental_queue">...</div>
-            <button name="return_to_lobby" id="return_to_lobby" value="Return Lobby" type="submit">Return to Lobby</button>
+            <button class="button-minus" name="return_to_lobby" id="return_to_lobby" value="Return Lobby" type="submit"><span>Return to Lobby</span></button>
             <br/>
-            <button name="start_new_mental" id="start_new_mental" value="Start Mental" type="submit">Start MJJ</button>
+            <button class="hvr-grow" name="start_new_mental" id="start_new_mental" value="Start Mental" type="submit"><span>Start MJJ</span></button>
         </div>
     </div>
+</div>
 </body>
-<script src="/scripts/lobby.js"></script>
+<script src="/scripts/lobby.js">
+</script>
 </html>

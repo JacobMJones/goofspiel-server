@@ -1,56 +1,138 @@
 body {
     margin: 3rem;
-    font-family: Avenir;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 2px;
+    background-color: #fec56d;
 }
 
 h1 {
-        color: black;
+        color: white;
         margin: auto;
         text-align: center;
-}
+        font-size: 7vw
 
+}
 h3 {
         text-align: center;
 }
 
-.container {
+.login-container {
     display: flex;
     justify-content: space-around;
-    margin: 7em;
+
 
 }
 button {
-        background-color: tan;
-        /* Green */
-        border: none;
-        color: white;
-        padding: 12px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 12px;
-        border-radius: 10px;
-        margin-top: 5px;
+    background-color: #b9414c;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 2px;
+    font-size: 12px;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-left: 3px;
 }
 
 #lobby {
 
-        top: 10px;
-        left: 10px;
-        width: 200px;
-        height: 200px;
-        background-color: #ffd;
+        width: 23vw;
+       height: 30vh;
+        background-color: #F96968;
         padding: 10px;
         border-radius: 10px;
+        margin-top: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        /*border: solid 1px #9BA0BC ;*/
 }
 
 #mental_queue {
 
-        top: 10px;
-        left: 220px;
-        width: 200px;
-        height: 200px;
-        background-color: lightblue;
+         width: 23vw;
+       height: 30vh;
+        background-color: #F96968;
         padding: 10px;
         border-radius: 10px;
+        margin-top: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button-add {
+      transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button-add span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-add span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-add:hover span {
+  padding-right: 25px;
+}
+
+.button-add:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*subtract effect*/
+.button-minus {
+    transition: all 0.5s;
+  cursor: pointer;
+}
+
+.button-minus span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-minus span:after {
+  content: '\00ab';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 20px;
+  transition: 0.5s;
+}
+
+.button-minus:hover span {
+  padding-left: 25px;
+}
+
+.button-minus:hover span:after {
+  opacity: 1;
+  left: 0;
+}
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

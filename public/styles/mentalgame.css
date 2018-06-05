@@ -1,5 +1,25 @@
+body {
+    margin: 3rem;
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 2px;
+    background-color: #fec56d;
+}
+
 h1 {
+        color: white;
+        margin: auto;
+        text-align: center;
+        font-size: 7vw
+}
+
+h2 {
     text-align: center;
+    font-size: 5vw;
+    color: black;
+}
+
+p {
+    font-size: 20px;
 }
 
 .ready_button {
@@ -9,41 +29,58 @@ h1 {
 .opponent_card_holder {
     background-color: rgb(136, 200, 243);
     height: 100px;
-    width: 100px;
+    width: 15vw;
+    margin: auto;
+    border-radius: 10px;
 }
 
 .opponent_card_holder_played {
     background-color: lightseagreen;
     height: 100px;
-    width: 100px;
+    width: 15vw;
 }
 
 .card {
-    float: left;
+    /*float: left;*/
     background-color: antiquewhite;
-    padding: 2%;
-    margin: 1%;
-    font-size: 15px;
+    padding: 5%;
+    margin: 3px;
+    font-size: 20px;
+    border-radius: 10px;
+
 }
 
+
 .played_card {
-    float: left;
-    bottom: 30;
-    background-color: green;
-    padding: 2%;
-    margin: 1%;
+    background-color: #F96968;
+    padding: 5%;
+    margin: 3px;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 #game_deck {
     text-align: center;
     font-size: 25px;
-    margin: 2%;
+    margin: auto;
+    margin-top: 15px;
     background-color: brown;
     height: 100px;
-    width: 100px;
+    width: 15vw;
+    border-radius: 10px;
+
 }
 
 hr {
     clear: both;
+}
+
+.opponent_name {
+    text-align: center;
+    font-size: 18px;
+}
+
+.card_holder {
+    display: flex;
+    flex-wrap: wrap;
 }
