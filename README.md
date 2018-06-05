@@ -3,7 +3,7 @@
 The goal of this ongoing project is to make a goofspiel server that supports real time multiplayer games with both human and AI opponents. 
 
 ## Bugs/Issues
-This project is in its early stages and still contains many bugs. While the user registration system works, the game itself is nearly unplayable beyond a single round. The code itself has not been refactored and is full of useless code. All game states are stored on the express server, not in the database as intended. 
+This project is in its early stages and still contains many bugs. While the user registration system works, the game itself is nearly unplayable beyond a single round. The code has not been refactored and is full of useless code. All game states are stored on the express server, not in the database as intended. 
 
 ## Dependencies
 - Node.js
